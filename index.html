@@ -78,22 +78,6 @@
             100% { transform: translate(0); text-shadow: 4px 4px 0px var(--black-ink); }
         }
 
-        @keyframes rawPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-        }
-
-        @keyframes tongueWiggle {
-            0%, 100% { transform: translate(-50%, 0) rotate(0deg); }
-            25% { transform: translate(-48%, 2px) rotate(3deg); }
-            75% { transform: translate(-52%, -1px) rotate(-3deg); }
-        }
-
-        @keyframes eyesIntense {
-            0%, 90%, 100% { transform: scaleY(1); }
-            95% { transform: scaleY(0.1); }
-        }
-
         /* ==========================================================================
            3. MARQUEE BANNER
            ========================================================================== */
@@ -141,7 +125,6 @@
             overflow: hidden;
         }
 
-        /* Dynamic Lightning Background Graphics */
         .bg-lightning {
             position: absolute;
             font-size: 25rem;
@@ -154,7 +137,6 @@
         .lt-1 { top: -50px; left: -50px; transform: rotate(15deg); }
         .lt-2 { bottom: -100px; right: -50px; transform: rotate(-25deg); color: var(--neon-yellow); }
 
-        /* Left Column UI Elements */
         .hero-left {
             display: flex;
             flex-direction: column;
@@ -169,7 +151,7 @@
             padding: 10px 20px;
             border: var(--brutal-border);
             box-shadow: var(--brutal-shadow);
-            transform: rotate(-4deg) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: rotate(-4deg);
             margin-bottom: 40px;
             text-transform: uppercase;
             line-height: 0.9;
@@ -221,7 +203,6 @@
             margin-bottom: 40px;
         }
 
-        /* Interactive UI Buttons */
         .btn-wrapper {
             display: flex;
             gap: 25px;
@@ -259,7 +240,7 @@
         }
 
         /* ==========================================================================
-           5. CENTERPIECE ANIMATED CANVAS (THE INTERACTIVE MOCKUP CAN)
+           5. HERO RIGHT: THE ACTUAL CAN DESIGN CONTAINER
            ========================================================================== */
         .hero-right {
             display: flex;
@@ -269,241 +250,15 @@
             z-index: 10;
         }
 
-        /* Entirely HTML/CSS Vector Constructed Can Wrapper */
-        .can-container {
-            width: 280px;
-            height: 560px;
-            position: relative;
+        .actual-can-display {
+            max-width: 340px;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(15px 20px 0px rgba(0,0,0,0.2));
             animation: floatCan 5s infinite ease-in-out;
             cursor: pointer;
-        }
-
-        .can-top-rim {
-            width: 260px;
-            height: 25px;
-            background: linear-gradient(90deg, #999 0%, #ddd 25%, #fff 50%, #bbb 75%, #777 100%);
-            border: 4px solid var(--black-ink);
-            border-radius: 50% / 50%;
-            position: absolute;
-            top: -12px;
-            left: 10px;
-            z-index: 5;
-        }
-
-        .can-body {
-            width: 280px;
-            height: 550px;
-            background: linear-gradient(90deg, #d6336c 0%, var(--pink-flash) 20%, #ff66aa 50%, var(--pink-flash) 80%, #b01050 100%);
-            border: 4px solid var(--black-ink);
-            border-radius: 20px 20px 30px 30px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 15px 20px 0px rgba(0,0,0,0.15);
-        }
-
-        /* Shimmer overlay line running across the cylinder metal surface */
-        .can-shimmer {
-            position: absolute;
-            top: 0;
-            left: 40%;
-            width: 30px;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            z-index: 4;
-            pointer-events: none;
-        }
-
-        /* Lightning Patterns Graphic Skins embedded on Can Surface */
-        .can-bolt {
-            position: absolute;
-            font-size: 8rem;
-            color: rgba(255, 255, 255, 0.25);
-            font-weight: bold;
-            user-select: none;
-        }
-        .cb-1 { top: 20px; left: -10px; transform: rotate(15deg); }
-        .cb-2 { bottom: 40px; right: -10px; transform: rotate(-20deg); color: rgba(255,234,0,0.25); }
-
-        /* Label details inside can */
-        .can-label-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 40px;
-            z-index: 3;
-        }
-
-        .can-label-header {
-            font-size: 3rem;
-            color: var(--white-paper);
-            line-height: 0.8;
-            letter-spacing: -2px;
-            text-shadow: 3px 3px 0px var(--black-ink);
-            text-transform: uppercase;
-        }
-
-        .can-label-sub {
-            font-size: 1.5rem;
-            color: var(--black-ink);
-            background: var(--white-paper);
-            padding: 2px 10px;
-            border: 2px solid var(--black-ink);
-            margin-top: 5px;
-            text-transform: uppercase;
-        }
-
-        /* Vector Embedded Cat Character Interface Frame */
-        .vector-cat-frame {
-            width: 140px;
-            height: 160px;
-            background: var(--white-paper);
-            border: 4px solid var(--black-ink);
-            border-radius: 50% 50% 40% 40%;
-            margin-top: 35px;
-            position: relative;
-            box-shadow: 4px 4px 0px var(--black-ink);
-        }
-
-        /* Pure CSS Render Elements of the Cat Face */
-        .cat-ear-l {
-            width: 0; height: 0;
-            border-left: 25px solid transparent;
-            border-right: 25px solid transparent;
-            border-bottom: 45px solid var(--white-paper);
-            position: absolute;
-            top: -20px; left: -5px;
-            transform: rotate(-25deg);
-        }
-        .cat-ear-l::after {
-            content: '';
-            width: 0; height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-bottom: 30px solid var(--pink-flash);
-            position: absolute;
-            top: 10px; left: -15px;
-        }
-
-        .cat-ear-r {
-            width: 0; height: 0;
-            border-left: 25px solid transparent;
-            border-right: 25px solid transparent;
-            border-bottom: 45px solid var(--white-paper);
-            position: absolute;
-            top: -20px; right: -5px;
-            transform: rotate(25deg);
-        }
-        .cat-ear-r::after {
-            content: '';
-            width: 0; height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-bottom: 30px solid var(--pink-flash);
-            position: absolute;
-            top: 10px; left: -15px;
-        }
-
-        .cat-eyes-container {
-            display: flex;
-            justify-content: space-between;
-            width: 80px;
-            position: absolute;
-            top: 55px; left: 30px;
-        }
-
-        .cat-eye {
-            width: 24px;
-            height: 24px;
-            background: var(--black-ink);
-            border-radius: 50%;
-            position: relative;
-            animation: eyesIntense 4s infinite none;
-        }
-        .cat-eye::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--white-paper);
-            border-radius: 50%;
-            position: absolute;
-            top: 4px; left: 4px;
-        }
-
-        .cat-blush-l {
-            width: 18px; height: 8px;
-            background: var(--pink-flash);
-            border-radius: 50%;
-            position: absolute;
-            top: 75px; left: 12px;
-            opacity: 0.6;
-        }
-        .cat-blush-r {
-            width: 18px; height: 8px;
-            background: var(--pink-flash);
-            border-radius: 50%;
-            position: absolute;
-            top: 75px; right: 12px;
-            opacity: 0.6;
-        }
-
-        .cat-mouth-container {
-            position: absolute;
-            top: 75px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 20px;
-        }
-        .cat-w-mouth {
-            font-size: 1.5rem;
-            color: var(--black-ink);
-            text-align: center;
-            line-height: 1;
-            font-weight: bold;
-        }
-        .cat-tongue {
-            width: 16px;
-            height: 16px;
-            background: var(--pink-flash);
-            border: 2px solid var(--black-ink);
-            border-radius: 0 0 10px 10px;
-            position: absolute;
-            bottom: -6px;
-            left: 50%;
-            animation: tongueWiggle 1s infinite ease-in-out;
-        }
-
-        .can-flavor-title {
-            margin-top: 25px;
-            font-size: 2.2rem;
-            color: var(--neon-yellow);
-            text-shadow: 2px 2px 0px var(--black-ink);
-            text-transform: uppercase;
-        }
-
-        .can-flavor-sub {
-            font-family: var(--font-body);
-            font-weight: 900;
-            font-size: 0.75rem;
-            color: var(--white-paper);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-top: -2px;
-        }
-
-        .can-bottom-specs {
-            margin-top: auto;
-            margin-bottom: 25px;
-            display: flex;
-            gap: 15px;
-            font-size: 0.9rem;
-            color: var(--white-paper);
-            text-transform: uppercase;
+            transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.5);
         }
 
         /* ==========================================================================
@@ -679,7 +434,7 @@
         }
 
         /* ==========================================================================
-           9. BRAND CORE BENFITS INFRASTRUCTURE (WHY KISSR)
+           9. BRAND CORE BENEFITS INFRASTRUCTURE (WHY KISSR)
            ========================================================================== */
         .why-kissr-container {
             background: var(--white-paper);
@@ -795,7 +550,7 @@
             .sublogo-giant { font-size: 2.6rem; }
             .badge-comic { font-size: 1.6rem; }
             .tagline-strip { font-size: 1.1rem; padding: 6px 15px; }
-            .can-container { transform: scale(0.85); margin: -40px 0; }
+            .actual-can-display { max-width: 260px; }
             .zone-title { font-size: 2.6rem; }
             .why-heading { font-size: 3rem; }
         }
@@ -839,43 +594,7 @@
         </div>
 
         <div class="hero-right">
-            <div class="can-container" id="interactiveCan" onclick="triggerCanBooster()">
-                <div class="can-top-rim"></div>
-                <div class="can-body">
-                    <div class="can-shimmer"></div>
-                    <div class="can-bolt cb-1">⚡</div>
-                    <div class="can-bolt cb-2">⚡</div>
-                    
-                    <div class="can-label-content">
-                        <div class="can-label-header">KISSR</div>
-                        <div class="can-label-sub">ENERGY</div>
-                        
-                        <div class="vector-cat-frame">
-                            <div class="cat-ear-l"></div>
-                            <div class="cat-ear-r"></div>
-                            <div class="cat-eyes-container">
-                                <div class="cat-eye"></div>
-                                <div class="cat-eye"></div>
-                            </div>
-                            <div class="cat-blush-l"></div>
-                            <div class="cat-blush-r"></div>
-                            <div class="cat-mouth-container">
-                                <div class="cat-w-mouth">3</div>
-                                <div class="cat-tongue" id="catTongue"></div>
-                            </div>
-                        </div>
-
-                        <div class="can-flavor-title">Vanilla Shake</div>
-                        <div class="can-flavor-sub">Naturally Flavored</div>
-
-                        <div class="can-bottom-specs">
-                            <span>⚡ Energy</span>
-                            <span>♥ Focus</span>
-                            <span>✦ 0 Sugar</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <img src="can-design.png" alt="KISSR Vanilla Shake Can" class="actual-can-display" id="actualCan" onclick="triggerCanBooster()">
         </div>
     </section>
 
@@ -989,18 +708,14 @@
 
     <script>
         function triggerCanBooster() {
-            const can = document.getElementById('interactiveCan');
-            const tongue = document.getElementById('catTongue');
+            const can = document.getElementById('actualCan');
             
-            // UI Soundless Visual Burst Effect
-            can.style.transform = 'scale(1.15) rotate(-5deg)';
-            tongue.style.height = '24px';
-            can.style.transition = 'transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.5)';
+            // UI Visual Burst Effect on Click
+            can.style.transform = 'scale(1.1) rotate(-4deg)';
             
             setTimeout(() => {
                 can.style.transform = '';
-                tongue.style.height = '16px';
-            }, 250);
+            }, 200);
         }
     </script>
 </body>
